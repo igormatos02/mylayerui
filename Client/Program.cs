@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using BlazorApp.Client.Api;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,7 +16,9 @@ namespace BlazorApp.Client
 
             var baseAddress = builder.Configuration["BaseAddress"] ?? builder.HostEnvironment.BaseAddress;
             builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(baseAddress) });
-
+            builder.Services.AddScoped<ProjectApi>();
+            builder.Services.AddHttpClient();
+           
             await builder.Build().RunAsync();
         }
     }
