@@ -27,12 +27,7 @@ jobs:
      #        dotnet build --configuration Release
      #   env:
      #         Password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Authenticate Nuget 
-        uses: NuGetAuthenticate@0
-        with:
-            nuGetServiceConnections: github
-   
-
+      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
