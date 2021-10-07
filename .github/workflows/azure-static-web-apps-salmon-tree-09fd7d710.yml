@@ -23,7 +23,7 @@ jobs:
       - name: Restore Packages
         run: |
              nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
-             nuget restore
+             nuget restore blazor-basic-swa.sln
         env:
               Password: ${{ secrets.GITHUB_TOKEN }}
       
