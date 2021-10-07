@@ -4,15 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BlazorApp.Client</RootNamespace>
     <UserSecretsId>c5641a08-fb1a-4344-9a11-61b6d399416a</UserSecretsId>
-    <PackageId>Client</PackageId>
-    <Version>1.0.2</Version>
-    <Authors>Igor Matos</Authors>
-    <Company>GitHub</Company>
-    <PackageDescription>Common Libraries for mylayers</PackageDescription>
-    <RepositoryUrl>https://github.com/igormatos02/mylayerapi</RepositoryUrl>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="client.mylayersapi" Version="1.0.8" />
     <PackageReference Include="clientlib.mylayersapi" Version="1.0.8" />
