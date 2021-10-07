@@ -24,7 +24,7 @@ jobs:
       - name: Restore Packages
         run: |
             dotnet nuget add source https://nuget.pkg.github.com/igormatdssdos02/index.json --store-password-in-clear-text --name "github" --username igormatos02 --password ${{env.Password}} 
-            dotnet restore --configfile /Client/nuget.Config
+            dotnet restore 
         env:
               Password: ${{ secrets.GITHUB_TOKEN }}
       
