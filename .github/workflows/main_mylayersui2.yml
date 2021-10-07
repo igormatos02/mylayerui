@@ -32,10 +32,10 @@ jobs:
         with:
           dotnet-version: '5.0.x'
           include-prerelease: true
-      
+      #dotnet nuget add source https://nuget.pkg.github.com/igormatdssdos02/index.json --store-password-in-clear-text --name "github" --username igormatos02 --password ${{secrets.GITHUB_TOKEN}} 
+         
       - name: Build with dotnet
         run: |
-         dotnet nuget add source https://nuget.pkg.github.com/igormatdssdos02/index.json --store-password-in-clear-text --name "github" --username igormatos02 --password ${{secrets.GITHUB_TOKEN}} 
          dotnet build --configuration Release 
          
       - name: dotnet publish
