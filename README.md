@@ -22,3 +22,6 @@ _Note: If you're using the Azure Functions CLI tools, refer to [the documentatio
 ## Deploy to Azure Static Web Apps
 
 This application can be deployed to [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps), to learn how, check out [our quickstart guide](https://aka.ms/blazor-swa/quickstart).
+
+## Add Nuget reference 
+ run: nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -Username igormatos02 -Password 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 

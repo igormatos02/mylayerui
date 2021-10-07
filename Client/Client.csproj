@@ -1,18 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BlazorApp.Client</RootNamespace>
+    <UserSecretsId>c5641a08-fb1a-4344-9a11-61b6d399416a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="client.mylayersapi" Version="1.0.8" />
+    <PackageReference Include="clientlib.mylayersapi" Version="1.0.8" />
+    <PackageReference Include="common.sismo" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0-preview.1.21102.12" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\mylayers\client.mylayersapi\client.mylayersapi.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
