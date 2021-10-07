@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
       - name: Restore
-        uses: actions/setup-dotnet@v1
+        #uses: actions/setup-dotnet@v1
         run:  dotnet restore
         with:
           dotnet-version: '3.1.x' # SDK Version to use.
