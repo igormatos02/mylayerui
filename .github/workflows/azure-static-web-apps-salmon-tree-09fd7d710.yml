@@ -25,6 +25,7 @@ jobs:
         run: |
             dotnet nuget add source https://nuget.pkg.github.com/igormatdssdos02/index.json --store-password-in-clear-text --name "github" --username igormatos02 --password ${{env.Password}} 
             dotnet restore --source https://nuget.pkg.github.com/igormatos02/index.json
+            dotnet restore --source https://api.nuget.org/v3/index.json
         env:
               Password: ${{ secrets.GITHUB_TOKEN }}
       
