@@ -28,10 +28,10 @@ jobs:
         #env:
           #NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: AddRef
-        run: nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -Username igormatos02 -Password ${{secrets.GITHUB_TOKEN}} 
-      - name: Restore
-        run: dotnet restore --interactive
-
+        run: nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
+             dotnet restore -Source https://nuget.pkg.github.com/igormatos02/index.json --verbosity 
+        env:
+            Password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
