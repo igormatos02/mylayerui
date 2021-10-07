@@ -31,6 +31,8 @@ jobs:
         run: nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -Username igormatos02 -Password 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 
       - name: Restore
         run: dotnet restore --interactive
+
+      - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
