@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\azure-static-web-apps-blue-ocean-08ca89c10.yml = .github\workflows\azure-static-web-apps-blue-ocean-08ca89c10.yml
 		.github\workflows\azure-static-web-apps-salmon-tree-09fd7d710.yml = .github\workflows\azure-static-web-apps-salmon-tree-09fd7d710.yml
-		.github\workflows\main_mylayersui2.yml = .github\workflows\main_mylayersui2.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
