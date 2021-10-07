@@ -22,6 +22,15 @@ jobs:
         with:
           dotnet-version: '5.0.x'
           include-prerelease: true
+      - name: Install NuGet client
+        uses: warrenbuckley/Setup-Nuget@v1
+
+      - name: restore package
+        run: |
+            nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password1}
+            dotnet restore 
+            env:
+                Password1: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build with dotnet
         run: |
