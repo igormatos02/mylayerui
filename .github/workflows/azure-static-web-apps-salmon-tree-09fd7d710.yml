@@ -31,7 +31,7 @@ jobs:
         uses: NuGetAuthenticate@0
         with:
             nuGetServiceConnections: github
-      - uses: UseDotNet@2 # Optional if the .NET Core SDK is already installed
+   
 
       - name: Build And Deploy
         id: builddeploy
