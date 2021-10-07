@@ -27,18 +27,25 @@ jobs:
           #source-url: https://nuget.pkg.github.com/igormatos02/index.json
         #env:
           #NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      #- name: AddRef
-      #  run: |
-      #       nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
-      #       nuget restore
-      #  env:
-      #      Password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1 
+        with:
+          dotnet-version: '3.1'
+          include-prerelease: true
+
+      - name: Restore Packages
+        run: |
+             nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
+             nuget restore
+             dotnet build --configuration Release
+        env:
+            Password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          Password: ${{ secrets.GITHUB_TOKEN }}
+          #Password: ${{ secrets.GITHUB_TOKEN }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_TREE_09FD7D710 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -49,9 +56,11 @@ jobs:
           api_location: "Api" # Api source code path - optional
           output_location: "wwwroot" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-          api_build_command:  |
-             nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
-             nuget restore
+          #https://githubmemory.com/repo/Azure/static-web-apps/issues?cursor=Y3Vyc29yOnYyOpK5MjAyMS0wNy0wMVQxNDowODo0OSswNzowMM43szOc&pagination=next&page=30
+          #api_build_command:  |
+          #   nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
+          #   nuget restore
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
