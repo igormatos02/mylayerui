@@ -1,5 +1,4 @@
 @page "/fetchdata"
-@using BlazorApp.Shared
 @using BlazorApp.Client.Api 
 @using common.sismo.models
 @inject HttpClient Http
@@ -37,7 +36,7 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+ 
     private List<SeismicProjectModel> projects;
     protected override async Task OnInitializedAsync()
     {

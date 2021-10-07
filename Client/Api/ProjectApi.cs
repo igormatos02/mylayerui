@@ -1,4 +1,4 @@
-﻿using client.mylayersapi;
+﻿using apiclient.mylayersapi;
 using clientlib.mylayers;
 using common.sismo.models;
 using System;
