@@ -19,11 +19,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      
+        #nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
+           
       - name: Restore Packages
         run: |
-             nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
-             nuget restore blazor-basic-swa.sln
+            dotnet nuget add source https://nuget.pkg.github.com/igormatdssdos02/index.json --store-password-in-clear-text --name "github" --username igormatos02 --password ${{env.Password}} 
+            dotnet restore blazor-basic-swa.sln
         env:
               Password: ${{ secrets.GITHUB_TOKEN }}
       
