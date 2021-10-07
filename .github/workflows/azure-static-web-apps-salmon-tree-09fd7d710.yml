@@ -19,13 +19,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      
-      #- name: Set up .NET Core
-      #  uses: actions/setup-dotnet@v1 
-      #  with:
-      #    dotnet-version: '3.1'
-      #    include-prerelease: true
-
+     
      # - name: Restore Packages
      #   run: |
      #        nuget sources add -name "github" -Source https://nuget.pkg.github.com/igormatos02/index.json -StorePasswordInClearText -Username igormatos02 -Password ${{env.Password}} 
